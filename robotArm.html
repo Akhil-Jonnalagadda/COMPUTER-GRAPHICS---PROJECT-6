@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void main()
+{
+    fColor = vColor;
+    gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying  vec4 fColor;
+
+void main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script type="text/javascript" src="initShaders.js"></script>
+<script type="text/javascript" src="MV.js"></script>
+<script type="text/javascript" src="robotArm.js"></script>
+
+
+<body>
+
+    <h1>3D Robot Arm Control Panel</h1>
+
+    <div class="slider-container1">
+        <div style="display: inline-block;">
+            <b>BODY ANGLE: </b> x axis: -180 <input id="slider1" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider4" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block; margin-top: 20px;">
+            z axis: -180 <input id="slider5" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+    </div>
+    <br />
+
+    <div class="slider-container2">
+        <div style="display: inline-block;">
+            <b>LOWER ARM ANGLE: </b> x axis:-180 <input id="slider2" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider6" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            z axis: -180 <input id="slider7" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+    </div>
+    <br />
+
+    <div class="slider-container3">
+        <div style="display: inline-block;">
+            <b>UPPER ARM ANGLE: </b> x axis:-180 <input id="slider3" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider8" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            z axis: -180 <input id="slider9" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+    </div>
+    <br />
+
+    <div class="slider-container4">
+        <div style="display: inline-block;">
+            <b>FINGER 1 : </b> x axis:-180 <input id="slider10" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider11" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            z axis: -180 <input id="slider12" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+    </div>
+    <br />
+
+    <div class="slider-container5">
+        <div style="display: inline-block;">
+            <b>FINGER 2 : </b> x axis:-180 <input id="slider13" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider14" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            z axis: -180 <input id="slider15" type="range" min="-180" max="180" step="10" value="20" />180
+        </div>
+    </div>
+    <br />
+
+    <div class="slider-container6">
+        <div style="display: inline-block;">
+            <b>FINGER 3 : </b> x axis:-180 <input id="slider16" type="range" min="-180" max="180" step="10"
+                value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            y axis: -180 <input id="slider17" type="range" min="-180" max="180" step="10" value="0" />180
+        </div>
+        <div style="display: inline-block;">
+            z axis: -180 <input id="slider18" type="range" min="-180" max="180" step="10" value="-20" />180
+        </div>
+    </div>
+    <br />
+
+    <canvas id="gl-canvas" width="812" height="612" style="border: 1px solid black;">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+</body>
+
+</html>
